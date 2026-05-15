@@ -22,6 +22,9 @@ const assets = {
   questionAsset2: "./questionframe2.png",
   questionAsset3: "./questionframe3.png",
   questionAsset4: "./questionframe4.png",
+  bgmTitle: "./title.mp3",
+  bgmQuiz: "./sentaku.mp3",
+  bgmResult: "./bunsekikekka.mp3",
 };
 
 const resultCardImages = {
@@ -1506,10 +1509,97 @@ const resultProfiles = {
   }
 };
 
+const bgmManager = {
+  current: null,
+  sounds: {},
+  initialized: false,
+
+  init() {
+    if (this.initialized) return;
+    this.sounds.title = new Audio(assets.bgmTitle);
+    this.sounds.quiz = new Audio(assets.bgmQuiz);
+    this.sounds.result = new Audio(assets.bgmResult);
+
+    Object.values(this.sounds).forEach((audio) => {
+      audio.loop = true;
+      audio.volume = 0;
+      audio.preload = "auto";
+      // ブラウザの制限解除のためのプライミング（無音で再生・停止）
+      audio
+        .play()
+        .then(() => {
+          audio.pause();
+          audio.currentTime = 0;
+        })
+        .catch(() => {});
+    });
+    this.initialized = true;
+  },
+
+  async play(key) {
+    this.init();
+    const next = key ? this.sounds[key] : null;
+
+    // すでに指定された曲が再生中なら何もしない
+    if (this.current === next && next && !next.paused) return;
+
+    // 別の曲に切り替わる場合の処理
+    if (this.current !== next) {
+      if (this.current) {
+        this.fadeOut(this.current);
+      }
+      if (next) {
+        next.currentTime = 0;
+      }
+    }
+
+    this.current = next;
+    if (next) {
+      try {
+        // 停止中の場合（初回再生やブロック解除時）に再生を開始
+        if (next.paused) {
+          await next.play();
+          this.fadeIn(next);
+        }
+      } catch (e) {
+        console.warn("BGMの再生がブロックされました:", e);
+      }
+    }
+  },
+
+  fadeIn(audio, duration = 1200) {
+    const targetVolume = 0.4; // 音量は控えめに設定
+    const start = performance.now();
+    const animate = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      audio.volume = progress * targetVolume;
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  },
+
+  fadeOut(audio, duration = 1000) {
+    const startVolume = audio.volume;
+    const start = performance.now();
+    const animate = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      audio.volume = Math.max(0, startVolume * (1 - progress));
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        audio.pause();
+      }
+    };
+    requestAnimationFrame(animate);
+  },
+};
+
 const app = document.querySelector("#app");
 
 const state = {
-  screen: "result",
+  screen: "intro",
   currentIndex: 0,
   answers: Array(questions.length).fill(null),
   resultType: "ENTP",
@@ -1542,12 +1632,24 @@ function escapeHtml(value) {
 function render() {
   setAssetVariables();
 
-  if (state.screen === "intro") renderIntro();
-  if (state.screen === "quiz") renderQuiz();
-  if (state.screen === "analyzing") renderAnalyzing();
+  if (state.screen === "intro") {
+    renderIntro();
+    bgmManager.play("title");
+  }
+  if (state.screen === "quiz") {
+    renderQuiz();
+    bgmManager.play("quiz");
+  }
+  if (state.screen === "analyzing") {
+    renderAnalyzing();
+    bgmManager.play(null); // 分析中は静寂
+  }
   if (state.screen === "cardReveal") renderCardReveal();
   if (state.screen === "cardAnimation") renderCardAnimation();
-  if (state.screen === "result") renderResult();
+  if (state.screen === "result") {
+    renderResult();
+    bgmManager.play("result");
+  }
 }
 
 function stageTemplate(bg, content, extraClass = "") {
@@ -1569,9 +1671,7 @@ function renderIntro() {
       <div class="stage-content hero-content">
         <img class="title-asset1" src="${assets.titleAsset1}" alt="" aria-hidden="true" />
         <h1 class="intro-title">
-          <span class="intro-type">Celestial Persona</span>
-          <span>星詠み</span>
-          <span class="intro-title-sub">16タイプ診断</span>
+          <span>MBTI診断</span>
         </h1>
         <img class="title-asset2" src="${assets.titleAsset2}" alt="" aria-hidden="true" />
         <p class="intro-copy">あなたの内側に眠る、<br/>星術師のカードを開く</p>
@@ -1669,7 +1769,6 @@ function renderCardReveal() {
         </video>
         <div class="reveal-overlay">
           <p>星術カードを召喚しています...</p>
-          <button class="game-button skip-button" type="button" data-action="skip-reveal">結果を見る</button>
         </div>
       </div>
     </section>
@@ -1724,6 +1823,24 @@ function renderCardAnimation() {
   container.addEventListener('click', skip);
   setTimeout(skip, 4000);
 }
+const mbtiRoleNames = {
+  INTJ: "建築家",
+  INTP: "論理学者",
+  ENTJ: "指揮官",
+  ENTP: "討論者",
+  INFJ: "提唱者",
+  INFP: "仲介者",
+  ENFJ: "主人公",
+  ENFP: "運動家",
+  ISTJ: "管理者",
+  ISFJ: "擁護者",
+  ESTJ: "幹部",
+  ESFJ: "領事",
+  ISTP: "巨匠",
+  ISFP: "冒険家",
+  ESTP: "起業家",
+  ESFP: "エンターテイナー",
+};
 
 function renderResult() {
   const type = state.resultType || calculateResultType();
@@ -1747,6 +1864,7 @@ function renderResult() {
           <div class="profile-basic">
             <p class="profile-title">${profile.title}</p>
             <div class="profile-tags">
+              <span class="tag">${mbtiRoleNames[profile.type]}</span>
               <span class="tag">属性: ${profile.attribute}</span>
               <span class="tag">守護星: ${profile.guardianStar}</span>
             </div>
@@ -1982,12 +2100,20 @@ app.addEventListener("click", (event) => {
   if (action === "choose") choose(target.dataset.letter);
   if (action === "next") nextQuestion();
   if (action === "back") previousQuestion();
-  if (action === "skip-reveal") {
-    state.screen = "result";
-    render();
-  }
   if (action === "share") shareResult();
   if (action === "restart") restart();
 });
+
+// 画面のどこかをタップ・クリックした瞬間にBGMを開始する（オートプレイ制限解除）
+const unlockAudio = () => {
+  bgmManager.init();
+  // 現在の画面に応じたBGMを再生
+  if (state.screen === "intro") bgmManager.play("title");
+  else if (state.screen === "quiz") bgmManager.play("quiz");
+  else if (state.screen === "result") bgmManager.play("result");
+};
+
+document.addEventListener("pointerdown", unlockAudio, { once: true });
+document.addEventListener("click", unlockAudio, { once: true });
 
 render();
