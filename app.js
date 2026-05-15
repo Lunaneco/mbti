@@ -1959,7 +1959,10 @@ function renderResult() {
 
 
           <div class="action-row">
-            <button class="game-button secondary-button" type="button" data-action="share">結果を共有</button>
+            <button class="game-button secondary-button x-share-button" type="button" data-action="share">
+              <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              Xで共有
+            </button>
             <button class="game-button secondary-button" type="button" data-action="restart">もう一度、星を読む</button>
           </div>
         </section>
@@ -2042,29 +2045,25 @@ function calculateResultType() {
   }${scores.J >= scores.P ? "J" : "P"}`;
 }
 
-async function shareResult() {
+function shareResult() {
   const type = state.resultType || calculateResultType();
   const profile = resultProfiles[type];
-  const text = `星詠み16タイプ診断の結果は ${profile.type}「${profile.cardName} / ${profile.title}」でした。${profile.quote}`;
+  const roleName = mbtiRoleNames[profile.type] ?? "";
 
-  if (navigator.share) {
-    try {
-      await navigator.share({
-        title: "星詠み16タイプ診断",
-        text,
-      });
-      return;
-    } catch (error) {
-      if (error.name === "AbortError") return;
-    }
-  }
+  // X（旧Twitter）の投稿文を生成
+  const tweetText = [
+    `「MBTI診断」で${profile.type
+    }（${roleName}）「${profile.cardName} / ${profile.title
+    }」と判定されました！`,
+    `「${profile.quote}」`,
+    `${profile.summary.split("\n")[0]}`,
+    ``,
+    `#mbti診断ゲーム参加`,
+  ].join("\n");
 
-  try {
-    await navigator.clipboard.writeText(text);
-    showToast("結果テキストをコピーしました");
-  } catch {
-    showToast("共有テキストをコピーできませんでした");
-  }
+  const gameUrl = "https://lunaneco.github.io/mbti/";
+  const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(gameUrl)}`;
+  window.open(intentUrl, "_blank", "noopener,noreferrer");
 }
 
 function showToast(message) {

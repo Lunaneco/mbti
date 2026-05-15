@@ -1333,3 +1333,18 @@ button {
   border-left: 3px solid rgba(84, 215, 255, 0.5);
   padding-left: 10px;
 }
+/* Xで共有ボタン */
+.x-share-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.x-icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
