@@ -29,8 +29,10 @@ const assets = {
 
 const resultCardImages = {
   ENTP: assets.entpCard,
-  INFJ: "./INFJ.jpeg",
+  INFJ: "./INFJnyanruna.jpeg",
+  INFJaoi: "./INFJaoi.jpeg",
   ISFP: "./ISFPkemono.jpeg",
+  ISTJ: "./ISTJshinjirou.jpeg",
 };
 
 const questions = [
@@ -595,6 +597,90 @@ const resultProfiles = {
     },
     "advice": "あなたの月は、誰かの夜をいつも照らしている。"
   },
+
+  // 蒼依（INFJバリアント）
+  "INFJ_aoi": {
+    "type": "INFJ",
+    "cardName": "蒼依",
+    "title": "星詠みの賢者",
+    "attribute": "魔法 × 星",
+    "guardianStar": "山羊座",
+    "goodStage": "一対一で深く向き合う時間",
+    "badStage": "表面的な雑談が続く場",
+    "quote": "君の光が、迷いの夜を照らすなら。僕の魔法は、いつでも君の味方だよ。",
+    "subQuote": "言葉にならない心を、僕はちゃんと受け取れる。",
+    "summary": "静けさの中に燃える知性を持つ賢者。\n誰かの痛みを処理する前に、すでに見抜いている。",
+    "stats": [
+      {
+        "label": "共感力",
+        "value": "SS"
+      },
+      {
+        "label": "直感力",
+        "value": "S"
+      },
+      {
+        "label": "知性",
+        "value": "S"
+      },
+      {
+        "label": "社交力",
+        "value": "B"
+      },
+      {
+        "label": "カオス耐性",
+        "value": "C"
+      }
+    ],
+    "aruaru": [
+      "初対面でも相手の本質を読んでしまう",
+      "表面上は穏やかでも内側で激しく考えている",
+      "慣れると突然、鋭い論証を内心で展開している",
+      "散歩してるようで、実は全て計算済み"
+    ],
+    "impression": "「冷静に見えて、話すと絶対離れられなくなる人。\n言葉の温度が違う、という感じ。」",
+    "seriousMode": [
+      "大切な人が傷ついている時",
+      "信念や価値観を踏みにじられた時",
+      "誰も気づいていない問題を放置できない時"
+    ],
+    "tired": [
+      "魔法陣を展開したまま完全に黙る",
+      "返信がゆっくりになる",
+      "真顔の笑顔が消える",
+      "星図をぼんやり眺めている"
+    ],
+    "recovery": [
+      "魔法書を一人で読み返す",
+      "夜空の星座を追う",
+      "信頼できる一人とだけ話す",
+      "頭の中の論理式を全部解き切る"
+    ],
+    "matches": [
+      "ENFP：世界を広げてくれる相手",
+      "ENTP：知的に刺激し合える相手",
+      "INFP：心の深さを共鳴できる相手"
+    ],
+    "roleSchool": "左脳で答えを出しつつ、クラスの流れを読む戦略家。",
+    "roleWork": "チームの人間関係を把握し、方向性を誤らせない羅針盤。",
+    "strengths": [
+      "人の感情と動機を本能的に読む力",
+      "魔法陣のように迷いのない論理的思考",
+      "揺るぎない価値観と誠実さ"
+    ],
+    "cautions": [
+      "感情を溜め込みすぎて急に限界が来る",
+      "理想が高すぎて自分を追い詰める"
+    ],
+    "toutoi": "言葉にならない誰かの痛みを、魔法でそっと受け取れるところ",
+    "lunaGauge": {
+      "安心度": "35%",
+      "好奇心": "85%",
+      "疲労サイン": "魔法陣を展開したまま黙る",
+      "ときめき回復値": "75%"
+    },
+    "advice": "君の魔法は、正しい方向にしか向かない。"
+  },
   "INFP": {
     "type": "INFP",
     "cardName": "夢璃",
@@ -846,86 +932,85 @@ const resultProfiles = {
   },
   "ISTJ": {
     "type": "ISTJ",
-    "cardName": "鐘真",
-    "title": "金時計の守護者",
-    "attribute": "土 × 時",
-    "guardianStar": "未知の星",
-    "goodStage": "自分のペースで進める時",
-    "badStage": "理不尽な制約",
-    "quote": "積み重ねた事実だけが、嵐の中で道標になる。",
-    "subQuote": "私だけの輝きを見つける。",
-    "summary": "独自の視点で世界を捉えるタイプ。\n内に秘めた情熱で道を切り開く。",
+    "cardName": "Shinji狼",
+    "title": "妄想防衛大臣",
+    "attribute": "土 × 鋼",
+    "guardianStar": "土星",
+    "goodStage": "明確なルールと責任がある仕事",
+    "badStage": "計画が崩れる混乱した状況",
+    "quote": "おまえは信頼できるか？―できるなら、信頼してやる。",
+    "subQuote": "無駄な飾りはいらない。結果だけが語る。",
+    "summary": "信頼とルールを守り抜く守護者。\n無口で無表情でも、任された責任は最後まで絶対に手放さないタイプ。",
     "stats": [
       {
-        "label": "直感力",
-        "value": "S"
-      },
-      {
-        "label": "行動力",
-        "value": "A"
-      },
-      {
-        "label": "共感力",
-        "value": "B"
+        "label": "責任感",
+        "value": "SS"
       },
       {
         "label": "継続力",
-        "value": "B"
+        "value": "SS"
+      },
+      {
+        "label": "実行力",
+        "value": "S"
+      },
+      {
+        "label": "柔軟性",
+        "value": "D"
       },
       {
         "label": "カオス耐性",
-        "value": "A"
+        "value": "D"
       }
     ],
     "aruaru": [
-      "独自のマイルールがある",
-      "ハマった時の集中力がすごい",
-      "時々周囲のペースを忘れる",
-      "ふとした瞬間に真理を突く"
+      "マニュアル違反を見つけると黙って正す",
+      "予定表は余白の予備まで埋め尽くす",
+      "一度決めたことは簡単には変えない",
+      "書類は必ずバックアップをとる"
     ],
-    "impression": "「ブレない軸を持っている人。\n独特の世界観に惹き込まれる。」",
+    "impression": "「冷たいと思ったら、一番勤勉で一番信頼できる人だった。\n目が合った時の一言が、ずっと刺さっている。」",
     "seriousMode": [
-      "本当に大切なものを守る時",
-      "自分の美学が問われた時",
-      "誰にも負けたくない勝負の時"
+      "不正やルール違反が生じた時",
+      "責任を軽く見る人が現れた時",
+      "自分が引き受けた仕事が上手くいかない時"
     ],
     "tired": [
-      "無口になる",
-      "一人の空間に逃げ込む",
-      "普段しないミスをする",
-      "甘いものをひたすら食べる"
+      "立ったままサングラスを外さなくなる",
+      "返信が文章ではなく既読のみになる",
+      "必要以上に寡黙になる",
+      "趣味の時間を倍に増やして一人になる"
     ],
     "recovery": [
-      "好きな音楽を聴く",
-      "自然に触れる",
-      "信頼できる人とだけ話す",
-      "たっぷり寝る",
-      "趣味に没頭する"
+      "扉を閉めて完全に一人になる",
+      "いつもの決まったルーティンを繰り返す",
+      "スケジュールや記録を整理し直す",
+      "信頼できる少数の人と静かに過ごす"
     ],
     "matches": [
-      "ENTP：刺激をくれる相手",
-      "ISFJ：安心できる相手",
-      "ENFJ：導いてくれる相手"
+      "ESFP：明るさで場を和らげてくれる相手",
+      "ESTP：同じ現実主義で信頼できる相手",
+      "ISFJ：協力し合える安心の相手"
     ],
-    "roleSchool": "いざという時に頼りになる存在。",
-    "roleWork": "専門性を活かしてチームの課題を突破する。",
+    "roleSchool": "課題を最後までやり切る、クラスの縁の下の力持ち。",
+    "roleWork": "定められたルールと手順を守り通し、チームの実務を支える柱。",
     "strengths": [
-      "深い洞察力",
-      "独自の美学",
-      "いざという時の集中力"
+      "一度引き受けた責任は必ず果たす",
+      "細部のミスも見逃さない観察力",
+      "長期的な計画を着実に実行する継続力"
     ],
     "cautions": [
-      "周りが見えなくなる時がある",
-      "説明を省略しがち"
+      "計画外の変化に対して硬直しやすい",
+      "ノーと言えず一人で抱え込んでしまう"
     ],
-    "toutoi": "自分の信じた道を不器用に突き進むところ",
+    "toutoi": "言葉にしなくても、背中で信頼を示し続けるところ",
     "lunaGauge": {
-      "安心度": "60%",
-      "好奇心": "70%",
-      "疲労サイン": "連絡が遅くなる",
-      "ときめき回復値": "60%"
+      "安心度": "55%",
+      "好奇心": "40%",
+      "疲労サイン": "サングラスを外さなくなる",
+      "ときめき回復値": "65%"
     },
-    "advice": "あなたの星は、そのままで十分美しい。"
+    "advice": "おまえのその堅さが、誰かの支えになっている。"
   },
   "ISFJ": {
     "type": "ISFJ",
@@ -1601,8 +1686,9 @@ const app = document.querySelector("#app");
 const state = {
   screen: "intro",
   currentIndex: 0,
-  answers: Array(questions.length).fill(null),
-  resultType: "ENTP",
+  answers: [],
+  resultType: null,
+  isAoiVariant: false,
   toastTimer: null,
   advanceTimer: null,
 };
@@ -1779,6 +1865,11 @@ function renderCardReveal() {
   const finish = () => {
     if (resolved) return;
     resolved = true;
+    
+    // 診断結果を確定させ、INFJの場合は蒼依バリアントか判定して保存
+    state.resultType = calculateResultType();
+    state.isAoiVariant = state.resultType === "INFJ" && Math.random() < 0.5;
+
     state.screen = "cardAnimation";
     render();
   };
@@ -1797,8 +1888,13 @@ function renderCardReveal() {
 
 function renderCardAnimation() {
   const type = state.resultType || calculateResultType();
-  const profile = resultProfiles[type];
-  const cardImage = resultCardImages[type];
+  
+  // 保存されたバリアント状態に基づいて画像とプロフィールを選択
+  const profileKey = state.isAoiVariant ? "INFJ_aoi" : type;
+  const cardImageKey = state.isAoiVariant ? "INFJaoi" : type;
+
+  const profile = resultProfiles[profileKey];
+  const cardImage = resultCardImages[cardImageKey];
 
   app.innerHTML = stageTemplate(
     assets.cardRevealBg,
@@ -1844,8 +1940,13 @@ const mbtiRoleNames = {
 
 function renderResult() {
   const type = state.resultType || calculateResultType();
-  const profile = resultProfiles[type];
-  const cardImage = resultCardImages[type];
+
+  // 保存されたバリアント状態に基づいて画像とプロフィールを選択
+  const profileKey = state.isAoiVariant ? "INFJ_aoi" : type;
+  const cardImageKey = state.isAoiVariant ? "INFJaoi" : type;
+
+  const profile = resultProfiles[profileKey];
+  const cardImage = resultCardImages[cardImageKey];
 
   app.innerHTML = `
     <section class="app-shell result-shell">
