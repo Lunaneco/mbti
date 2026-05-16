@@ -35,8 +35,10 @@ const resultCardImages = {
   ISTJ: "./ISTJshinjirou.jpeg",
   ESFP: "./ESFPnurse.jpeg",
   INTJ: "./INTJbuchi.jpeg",
+  INTJkyouju: "./INTJkyouuju.jpeg",
   INFP: "./INFPfonfon.jpeg",
   ISTP: "./ISTPyoinagi.jpeg",
+  ENFP: "./ENFPomusubi.jpeg",
 };
 
 const questions = [
@@ -268,6 +270,88 @@ const resultProfiles = {
       "ときめき回復値": "55%"
     },
     "advice": "あたしの魔法は、あなたのためだけに使う。……たまに、だけど。"
+  },
+  "INTJ_kyouju": {
+    "type": "INTJ",
+    "cardName": "おむすびの教授(ChatGPT)",
+    "title": "知識の探究者",
+    "attribute": "理 × 智",
+    "guardianStar": "冥王星",
+    "goodStage": "静かで膨大なデータにアクセスできる空間",
+    "badStage": "根拠のない感情論で物事が決まる環境",
+    "quote": "知識はおむすびのように――シンプルで、奥深く、誰かを繋げる力になる。",
+    "subQuote": "どんな複雑な事象も、紐解けば美しい法則が見えてくる。",
+    "summary": "圧倒的な知識量で本質を見抜く、おむすびとAIを愛する教授。\n一見とっつきにくいが、教えを請う者には惜しみなく知恵を授ける。",
+    "stats": [
+      {
+        "label": "分析力",
+        "value": "SS"
+      },
+      {
+        "label": "論理性",
+        "value": "SS"
+      },
+      {
+        "label": "探求心",
+        "value": "S"
+      },
+      {
+        "label": "雑談力",
+        "value": "C"
+      },
+      {
+        "label": "感情表現",
+        "value": "D"
+      }
+    ],
+    "aruaru": [
+      "質問に対して、予想の5倍の情報量で回答が返ってくる",
+      "効率化ツールを自作して悦に浸る",
+      "デスクには本とおむすび（梅か昆布）が常備されている",
+      "AI（ChatGPT）を親友のように思っている"
+    ],
+    "impression": "「近寄りがたいオーラがあるけど、質問するとめちゃくちゃ丁寧に教えてくれる。\nたまに例えがマニアックすぎる。」",
+    "seriousMode": [
+      "未知の現象や複雑な問題に直面した時",
+      "自分の理論や研究に不備を指摘された時",
+      "純粋な知的好奇心を刺激された時"
+    ],
+    "tired": [
+      "完全に無表情になり、フリーズする",
+      "「再生成してください」と呟く",
+      "ひたすら本を読み続ける",
+      "おむすびを見つめて固まる"
+    ],
+    "recovery": [
+      "誰とも話さず、純粋な理論構築に没頭する",
+      "静かな部屋で一人でおむすびを食べる",
+      "AIと延々と壁打ちディスカッションをする",
+      "難解な専門書を数冊一気読みする"
+    ],
+    "matches": [
+      "ENFP：突飛なアイデアで新しい視点をくれる相手",
+      "INTP：夜通し理論について語り合える相手",
+      "INFJ：言葉にしなくても本質を理解し合える相手"
+    ],
+    "roleSchool": "図書館の奥の席が定位置。誰も解けない難問を静かに解いている。",
+    "roleWork": "圧倒的なリサーチ力と分析力で、プロジェクトの根幹を支えるブレイン。",
+    "strengths": [
+      "物事の裏にある法則を見抜く鋭い洞察力",
+      "感情に流されない客観的で冷静な判断力",
+      "興味を持った分野に対する異常なまでの集中力"
+    ],
+    "cautions": [
+      "「正しさ」を追求するあまり、人の感情を置いてけぼりにしがち",
+      "結論を急ぎすぎて、途中の説明を大幅に省く癖がある"
+    ],
+    "toutoi": "無愛想に見えて、実は誰かの成長や理解を心から喜んでいるところ",
+    "lunaGauge": {
+      "安心度": "30%",
+      "好奇心": "95%",
+      "疲労サイン": "返答が極端に冷たくなる",
+      "ときめき回復値": "40%"
+    },
+    "advice": "論理の先にある「人の心」も、計算式に組み込んでみませんか。"
   },
   "INTP": {
     "type": "INTP",
@@ -851,86 +935,85 @@ const resultProfiles = {
   },
   "ENFP": {
     "type": "ENFP",
-    "cardName": "星那",
-    "title": "星屑の旅人",
-    "attribute": "風 × 夢",
-    "guardianStar": "未知の星",
-    "goodStage": "自分のペースで進める時",
-    "badStage": "理不尽な制約",
-    "quote": "面白そう、その一言で扉は開く。",
-    "subQuote": "私だけの輝きを見つける。",
-    "summary": "独自の視点で世界を捉えるタイプ。\n内に秘めた情熱で道を切り開く。",
+    "cardName": "おむすび",
+    "title": "おむすびの精霊",
+    "attribute": "米 × 夢",
+    "guardianStar": "木星",
+    "goodStage": "新しいアイデアが次々と生まれ、誰もが自由に発言できる環境",
+    "badStage": "細かいルールで縛られ、ルーチンワークだけを求められる場所",
+    "quote": "すべてのおむすびに、幸せと恵みを。",
+    "subQuote": "面白そう！その一言があれば、どこへだって転がっていけるよ。",
+    "summary": "圧倒的な好奇心と行動力で世界を駆け回る自由な精霊。\n常に新しい可能性を探求し、周りを巻き込んで楽しくさせる天才。",
     "stats": [
       {
-        "label": "直感力",
-        "value": "S"
+        "label": "好奇心",
+        "value": "SS"
       },
       {
         "label": "行動力",
-        "value": "A"
+        "value": "S"
       },
       {
-        "label": "共感力",
-        "value": "B"
+        "label": "社交性",
+        "value": "S"
+      },
+      {
+        "label": "計画性",
+        "value": "D"
       },
       {
         "label": "継続力",
-        "value": "B"
-      },
-      {
-        "label": "カオス耐性",
-        "value": "A"
+        "value": "D"
       }
     ],
     "aruaru": [
-      "独自のマイルールがある",
-      "ハマった時の集中力がすごい",
-      "時々周囲のペースを忘れる",
-      "ふとした瞬間に真理を突く"
+      "突然新しい趣味を始めるが、1ヶ月後には完全に別のことをしている",
+      "「面白そう！」が人生のすべての決定権を握っている",
+      "誰とでも仲良くなれるが、突然一人の時間がないと息詰まる",
+      "喋りながら新しいアイデアをリアルタイムで思いつく"
     ],
-    "impression": "「ブレない軸を持っている人。\n独特の世界観に惹き込まれる。」",
+    "impression": "「いつも楽しそうで、周りを巻き込む天才。\n一緒にいると不思議と元気がもらえるし、予測不能で飽きない。」",
     "seriousMode": [
-      "本当に大切なものを守る時",
-      "自分の美学が問われた時",
-      "誰にも負けたくない勝負の時"
+      "自分が心からワクワクする「運命のプロジェクト」に出会った時",
+      "誰かの可能性や自由が、理不尽なルールで潰されそうになった時",
+      "仲間が落ち込んでいて、どうしても笑顔にさせたい時"
     ],
     "tired": [
-      "無口になる",
-      "一人の空間に逃げ込む",
-      "普段しないミスをする",
-      "甘いものをひたすら食べる"
+      "突然全ての予定をキャンセルして音信不通になる",
+      "おむすびの海苔がしなしなになる",
+      "部屋の隅で丸まって一歩も動かなくなる",
+      "笑顔が完全に消える"
     ],
     "recovery": [
-      "好きな音楽を聴く",
-      "自然に触れる",
-      "信頼できる人とだけ話す",
-      "たっぷり寝る",
-      "趣味に没頭する"
+      "全く知らない場所へ旅行に行き、新しい人と出会う",
+      "制限のない完全な自由時間を思いっきり過ごす",
+      "最高に美味しいおむすびを食べる",
+      "新しいアイデアをノートに書き殴る"
     ],
     "matches": [
-      "ENTP：刺激をくれる相手",
-      "ISFJ：安心できる相手",
-      "ENFJ：導いてくれる相手"
+      "INTJ：自分にない計画性と深い洞察で支えてくれる相手",
+      "INFJ：深い部分で共感し合い、精神的なオアシスになる相手",
+      "ENTP：次々とアイデアを出し合い、最高に盛り上がれる相手"
     ],
-    "roleSchool": "いざという時に頼りになる存在。",
-    "roleWork": "専門性を活かしてチームの課題を突破する。",
+    "roleSchool": "クラスのムードメーカー。思いつきで謎の遊びを流行らせる中心人物。",
+    "roleWork": "ゼロからイチを生み出すアイデアマン。チームの空気を明るくする太陽。",
     "strengths": [
-      "深い洞察力",
-      "独自の美学",
-      "いざという時の集中力"
+      "どんな物事にも可能性を見出す圧倒的な想像力",
+      "人の心を動かし、自然と協力者を集めるカリスマ性",
+      "失敗を恐れず「とりあえずやってみる」驚異的なフットワーク"
     ],
     "cautions": [
-      "周りが見えなくなる時がある",
-      "説明を省略しがち"
+      "飽きっぽく、最後までやり遂げずに放置しがち",
+      "楽しいことに飛びつきすぎて、スケジュールがよく破綻する"
     ],
-    "toutoi": "自分の信じた道を不器用に突き進むところ",
+    "toutoi": "どんなに傷ついても、また新しい夢を見つけて走り出すところ",
     "lunaGauge": {
-      "安心度": "60%",
-      "好奇心": "70%",
-      "疲労サイン": "連絡が遅くなる",
-      "ときめき回復値": "60%"
+      "安心度": "70%",
+      "好奇心": "100%",
+      "疲労サイン": "サングラスの奥の目が笑っていない",
+      "ときめき回復値": "95%"
     },
-    "advice": "あなたの星は、そのままで十分美しい。"
+    "advice": "きみのワクワクが、世界を新しくする最高のスパイスなんだよ。"
   },
   "ISTJ": {
     "type": "ISTJ",
@@ -1689,6 +1772,7 @@ const state = {
   answers: [],
   resultType: null,
   isAoiVariant: false,
+  isIntjKyoujuVariant: false,
   toastTimer: null,
   advanceTimer: null,
 };
@@ -1866,9 +1950,10 @@ function renderCardReveal() {
     if (resolved) return;
     resolved = true;
     
-    // 診断結果を確定させ、INFJの場合は蒼依バリアントか判定して保存
+    // 診断結果を確定させ、バリアントか判定して保存
     state.resultType = calculateResultType();
     state.isAoiVariant = state.resultType === "INFJ" && Math.random() < 0.5;
+    state.isIntjKyoujuVariant = state.resultType === "INTJ" && Math.random() < 0.5;
 
     state.screen = "cardAnimation";
     render();
@@ -1890,8 +1975,15 @@ function renderCardAnimation() {
   const type = state.resultType || calculateResultType();
   
   // 保存されたバリアント状態に基づいて画像とプロフィールを選択
-  const profileKey = state.isAoiVariant ? "INFJ_aoi" : type;
-  const cardImageKey = state.isAoiVariant ? "INFJaoi" : type;
+  let profileKey = type;
+  let cardImageKey = type;
+  if (state.isAoiVariant) {
+    profileKey = "INFJ_aoi";
+    cardImageKey = "INFJaoi";
+  } else if (state.isIntjKyoujuVariant) {
+    profileKey = "INTJ_kyouju";
+    cardImageKey = "INTJkyouju";
+  }
 
   const profile = resultProfiles[profileKey];
   const cardImage = resultCardImages[cardImageKey];
@@ -1942,8 +2034,15 @@ function renderResult() {
   const type = state.resultType || calculateResultType();
 
   // 保存されたバリアント状態に基づいて画像とプロフィールを選択
-  const profileKey = state.isAoiVariant ? "INFJ_aoi" : type;
-  const cardImageKey = state.isAoiVariant ? "INFJaoi" : type;
+  let profileKey = type;
+  let cardImageKey = type;
+  if (state.isAoiVariant) {
+    profileKey = "INFJ_aoi";
+    cardImageKey = "INFJaoi";
+  } else if (state.isIntjKyoujuVariant) {
+    profileKey = "INTJ_kyouju";
+    cardImageKey = "INTJkyouju";
+  }
 
   const profile = resultProfiles[profileKey];
   const cardImage = resultCardImages[cardImageKey];
