@@ -28,7 +28,7 @@ const assets = {
 };
 
 const resultCardImages = {
-  ENTP: assets.entpCard,
+  ENTP: "./ENTPtsukineco.jpeg",
   INFJ: "./INFJnyanruna.jpeg",
   INFJaoi: "./INFJaoi.jpeg",
   ISFP: "./ISFPkemono.jpeg",
