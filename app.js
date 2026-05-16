@@ -37,6 +37,7 @@ const resultCardImages = {
   INTJ: "./INTJbuchi.jpeg",
   INTJkyouju: "./INTJkyouuju.jpeg",
   INFP: "./INFPfonfon.jpeg",
+  INFPhehehe: "./INFPhehehehehe.jpeg",
   ISTP: "./ISTPyoinagi.jpeg",
   ENFP: "./ENFPomusubi.jpeg",
   ENFJ: "./ENFJaoi.jpeg",
@@ -850,6 +851,88 @@ const resultProfiles = {
       "ときめき回復値": "90%"
     },
     "advice": "きみの紡ぐ魔法（やさしさ）は、この世界に絶対に必要だよ。"
+  },
+  "INFP_hehehe": {
+    "type": "INFP",
+    "cardName": "へへへへへ",
+    "title": "料理人",
+    "attribute": "肉 × 愛",
+    "guardianStar": "高血圧星",
+    "goodStage": "誰かのために、真心を込めて料理を作っている静かな厨房",
+    "badStage": "心ない言葉が飛び交う、ギスギスした空間",
+    "quote": "持ってくれよ！？俺の血圧！！",
+    "subQuote": "見た目はこんなだが、心は繊細なガラス細工なんだぜ……。",
+    "summary": "筋骨隆々な肉体と限界突破の血圧に、とてつもなく繊細で優しい心を宿す料理人。\n他人の痛みに誰よりも深く共感し、愛と栄養を込めた料理で癒やそうとする。",
+    "stats": [
+      {
+        "label": "共感力",
+        "value": "SS"
+      },
+      {
+        "label": "包容力",
+        "value": "SS"
+      },
+      {
+        "label": "繊細さ",
+        "value": "S"
+      },
+      {
+        "label": "計画性",
+        "value": "D"
+      },
+      {
+        "label": "ストレス耐性",
+        "value": "D"
+      }
+    ],
+    "aruaru": [
+      "誰かが落ち込んでいると、無言で特盛り肉じゃがを出してくる",
+      "傷つきやすいが、筋肉と笑顔で必死に隠している",
+      "感動的な映画やドラマを見ると、誰よりも号泣する",
+      "怒っているのではなく、ただ血圧が高いだけ"
+    ],
+    "impression": "「いかつい見た目に反して、めちゃくちゃ心が優しくて繊細。\n彼のご飯を食べると不思議と涙が出る。」",
+    "seriousMode": [
+      "大切な人が深く傷つき、心をすり減らしている時",
+      "自分の作った料理や、込めた愛情を踏みにじられた時",
+      "自分の血圧が200を超え、命の危機を感じた時"
+    ],
+    "tired": [
+      "厨房の隅で小さく丸まって動かなくなる",
+      "血圧計の数値を見つめて「へへ……」と乾いた笑いをする",
+      "料理の味がめちゃくちゃ薄くなる（塩分を気にし始める）",
+      "涙もろさに拍車がかかる"
+    ],
+    "recovery": [
+      "完全な一人きりの空間で、お花や小動物の動画を見て癒やされる",
+      "自分の気持ちをポエムにしてノートに書き留める",
+      "誰かが自分の料理を食べて「美味しい」と笑ってくれた時",
+      "血圧計の数値が平常値に戻った時"
+    ],
+    "matches": [
+      "ENFJ：持ち前の優しさを肯定し、引っ張ってくれる相手",
+      "INTJ：感情論抜きで、血圧を下げる具体的なアドバイスをくれる相手",
+      "ISFP：言葉を交わさなくても、横で一緒に肉じゃがを食べてくれる相手"
+    ],
+    "roleSchool": "見た目はいかついが、実は園芸部や手芸部に所属している心優しきオアシス。",
+    "roleWork": "チームのギスギスした空気を、美味しい差し入れと溢れる共感力で和らげるお母さん的存在。",
+    "strengths": [
+      "傷ついた人の心に寄り添う、海のように深い共感力",
+      "相手を癒やすために、一切の手間を惜しまない圧倒的な愛情",
+      "理想の世界を信じ続ける、純粋無垢な心"
+    ],
+    "cautions": [
+      "他人の感情にシンクロしすぎて、自分の血圧（ストレス）が限界を突破しがち",
+      "言いたいことを飲み込みすぎて、内面で勝手に落ち込む"
+    ],
+    "toutoi": "限界ギリギリの血圧で、それでも誰かに優しい世界を届けようとするところ",
+    "lunaGauge": {
+      "安心度": "80%",
+      "好奇心": "80%",
+      "疲労サイン": "血圧計からアラーム音が鳴る",
+      "ときめき回復値": "90%"
+    },
+    "advice": "きみの優しさは世界を救うけど……まずは自分の血圧を大事にしてくれよな！"
   },
   "ENFJ": {
     "type": "ENFJ",
@@ -1773,6 +1856,7 @@ const state = {
   resultType: null,
   isAoiVariant: false,
   isIntjKyoujuVariant: false,
+  isInfpHeheheVariant: false,
   toastTimer: null,
   advanceTimer: null,
 };
@@ -1954,6 +2038,7 @@ function renderCardReveal() {
     state.resultType = calculateResultType();
     state.isAoiVariant = state.resultType === "INFJ" && Math.random() < 0.5;
     state.isIntjKyoujuVariant = state.resultType === "INTJ" && Math.random() < 0.5;
+    state.isInfpHeheheVariant = state.resultType === "INFP" && Math.random() < 0.5;
 
     state.screen = "cardAnimation";
     render();
@@ -1983,6 +2068,9 @@ function renderCardAnimation() {
   } else if (state.isIntjKyoujuVariant) {
     profileKey = "INTJ_kyouju";
     cardImageKey = "INTJkyouju";
+  } else if (state.isInfpHeheheVariant) {
+    profileKey = "INFP_hehehe";
+    cardImageKey = "INFPhehehe";
   }
 
   const profile = resultProfiles[profileKey];
@@ -2042,6 +2130,9 @@ function renderResult() {
   } else if (state.isIntjKyoujuVariant) {
     profileKey = "INTJ_kyouju";
     cardImageKey = "INTJkyouju";
+  } else if (state.isInfpHeheheVariant) {
+    profileKey = "INFP_hehehe";
+    cardImageKey = "INFPhehehe";
   }
 
   const profile = resultProfiles[profileKey];
